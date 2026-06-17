@@ -8,8 +8,7 @@ ROOT="/mnt/warehouse/opt/web-tunnel"
 LOG="/tmp/ups-apk-build.log"
 
 STOPPED=""
-for c in homeassistant homepage uptime-kuma pihole beszel beszel-agent \
-  web-tunnel-nginx-1 web-tunnel-ups-backend-1 web-tunnel-cloudflared-1; do
+for c in homeassistant homepage uptime-kuma pihole beszel beszel-agent; do
   if docker stop "$c" 2>/dev/null; then
     STOPPED="$STOPPED $c"
   fi
@@ -18,7 +17,7 @@ done
 {
   echo "=== UPS APK build $(date -Iseconds) ==="
   free -m | head -2
-  cd "$ROOT/mobile-app"
+  cd "/mnt/warehouse/backups/UPS/Mobile App/ups-mobile-app"
   npm install --silent 2>/dev/null || npm install
   npx cap sync android
   echo "sdk.dir=$ANDROID_HOME" > android/local.properties
@@ -32,6 +31,7 @@ done
   fi
   mkdir -p "$ROOT/html/downloads"
   cp "$APK" "$ROOT/html/downloads/UPS.apk"
+  cp "$APK" "/mnt/warehouse/backups/UPS/Mobile App/UPS.apk"
   ls -lh "$ROOT/html/downloads/UPS.apk"
   echo "BUILD_OK"
 } 2>&1 | tee "$LOG"
