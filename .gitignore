@@ -1,0 +1,26 @@
+node_modules/
+.DS_Store
+
+# Android / Gradle
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/capacitor-cordova-android-plugins/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/app/src/main/res/xml/config.xml
+
+# iOS
+ios/App/Pods/
+ios/DerivedData/
+
+# Signing (keep local)
+*.keystore
+*.jks
+ups-release.keystore
+
+# Build output
+*.apk
+*.aab
