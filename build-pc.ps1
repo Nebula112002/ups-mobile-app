@@ -1,4 +1,4 @@
-# Build a debug APK on Windows. Requires Node.js 20+ and Android Studio (SDK).
+# Build an optimized release APK on Windows. Requires Node.js 20+ and Android SDK.
 $ErrorActionPreference = "Stop"
 Set-Location $PSScriptRoot
 
@@ -25,15 +25,15 @@ npx cap sync android
 Push-Location android
 try {
     if ($IsWindows -or $env:OS -match "Windows") {
-        .\gradlew.bat assembleDebug
+        .\gradlew.bat assembleRelease
     } else {
-        ./gradlew assembleDebug
+        ./gradlew assembleRelease
     }
 } finally {
     Pop-Location
 }
 
-$apk = "android\app\build\outputs\apk\debug\app-debug.apk"
+$apk = "android\app\build\outputs\apk\release\app-release.apk"
 if (Test-Path $apk) {
     Write-Host ""
     Write-Host "Built: $apk"

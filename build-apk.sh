@@ -23,8 +23,8 @@ done
   echo "sdk.dir=$ANDROID_HOME" > android/local.properties
   cd android
   ./gradlew --stop 2>/dev/null || true
-  ./gradlew assembleDebug --no-daemon --max-workers=1
-  APK=$(find app/build/outputs/apk/debug -name "*.apk" | head -1)
+  ./gradlew assembleRelease --no-daemon --max-workers=1
+  APK=$(find app/build/outputs/apk/release -name "*.apk" | head -1)
   if [ -z "$APK" ]; then
     echo "BUILD_FAIL: no APK found"
     exit 1
