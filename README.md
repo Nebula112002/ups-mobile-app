@@ -24,9 +24,19 @@ In Android Studio: **Settings → Languages & Frameworks → Android SDK** — i
 ### Steps
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/Nebula112002/ups-mobile-app.git
 cd ups-mobile-app
+```
 
+**Windows (PowerShell):**
+
+```powershell
+.\build-pc.ps1
+```
+
+**Or manually:**
+
+```bash
 npm install
 npx cap sync android
 ```
