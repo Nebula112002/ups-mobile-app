@@ -12,13 +12,19 @@ cd ups-mobile-app
 Open in File Explorer:
 
 ```
-\\10.0.0.250\UPS-Documents\ups-mobile-app
+\\10.0.0.250\UPS-Documents\Mobile App\ups-mobile-app
+```
+
+Built APK:
+
+```
+\\10.0.0.250\UPS-Documents\Mobile App\UPS.apk
 ```
 
 Or clone from the LAN share:
 
 ```bash
-git clone "//10.0.0.250/UPS-Documents/ups-mobile-app" ups-mobile-app
+git clone "//10.0.0.250/UPS-Documents/Mobile App/ups-mobile-app" ups-mobile-app
 cd ups-mobile-app
 ```
 
